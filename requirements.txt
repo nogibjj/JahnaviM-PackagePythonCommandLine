@@ -1,0 +1,9 @@
+black
+pytest
+pytest-cov
+pylint
+ruff
+requests
+
+python-dotenv
+databricks-sql-connector
