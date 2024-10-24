@@ -1,3 +1,5 @@
+'''Setup for Python script to run, installs required packages'''
+
 from setuptools import setup, find_packages
 
 setup(
