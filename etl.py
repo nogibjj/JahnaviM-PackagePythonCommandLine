@@ -8,6 +8,7 @@ from mylib.transform_load import trans_load
 from mylib.query import create_table2, query_complex
 
 def interactive_query():
+    '''An interactive cli function for user to query db'''
     cli_run = input('Would you like to run your own query? [y/n] ')
     if cli_run == 'y':
         query = input('Enter your Databricks SQL Query: ')
@@ -24,12 +25,14 @@ def interactive_query():
                     for row in output:
                         print('\t', row)
                     print('Custom Query Completed Running.')
-                except:
-                    print('No Query Results. Custom query must be valid according to schema and dialect constraints.')
+                except Exception as e:
+                    print('No Query Results.')
+                    print('Custom query must be valid according to schema and dialect constraints.')
+                    print('This was the error from your query', e)
     elif cli_run == 'n':
         print("No Custom Query Run.")
     else:
-        print(cli_run, ' is not a valid response. To run your own query, rerun the script and respond with either y or n.')
+        print(cli_run, ' is not a valid response. Rerun the script and respond with either y or n.')
 
 if __name__ == "__main__":
     # Extract
