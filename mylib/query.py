@@ -41,7 +41,7 @@ def query_complex():
                            ORDER BY round(df.drivers_count);''')
             output = cursor.fetchall()
             for row in output:
-                print(row)
+                print('\t', row)
             cursor.close()
             connection.close()
     return output
