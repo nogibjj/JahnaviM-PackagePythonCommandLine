@@ -25,10 +25,11 @@ def interactive_query():
                     for row in output:
                         print('\t', row)
                     print('Custom Query Completed Running.')
-                except Exception as e:
-                    print('No Query Results.')
+                except sql.exc.ServerOperationError as e:
                     print('Custom query must be valid according to schema and dialect constraints.')
                     print('This was the error from your query', e)
+                    print()
+                    print('No Query Results.')
     elif cli_run == 'n':
         print("No Custom Query Run.")
     else:
