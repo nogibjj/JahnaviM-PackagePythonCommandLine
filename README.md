@@ -1,10 +1,10 @@
-# Jahnavi Maddhuri: Complex SQL Query with a Databricks Database
+# Jahnavi Maddhuri: Package a Python Script into a Command-Line Tool
 This project demonstrates the use of Python to interact with a Databricks SQL Server. Specifically, it gives the capability to take the bad-drivers csv and upload relevant data to a table hosted on Databricks called jm_baddrivers. It then creates another table, jm_baddrivers_speed, which was derived from the original table. Finally, it outputs insights generated from a complex query joining and aggregating the two tables that were created. 
 
 In this project template, I get a continuous feedback loop as I iterate and enhance this analysis. I also provide interesting insights regarding the states statistics regarding drivers involved in fatal collisions, or bad drivers. Specifically, I use the average number of bad drivers per billion miles and speeding rates amonst these incidents to analyze the average number drivers that were speeding while involved in a fatal collision. I leverage the Databricks connection, ETL technicques, SQL CRUD statements and complex query elements. 
 
 ## CI/CD Badge
-[![CICD](https://github.com/nogibjj/JahnaviM-ComplexSQL/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/JahnaviM-ComplexSQL/actions/workflows/cicd.yml)
+[![CICD](https://github.com/nogibjj/JahnaviM-PackagePythonCommandLine/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/JahnaviM-PackagePythonCommandLine/actions/workflows/cicd.yml)
 
 ## Instructions for Use
 To use this repository, start by cloning it, or open a codespace. Make sure all the requirements in requirements.txt are fulfilled as these are necessary tools to run the python scripts. In order to connect to Databricks, you will need your own credentials. Create a .env file with your Databricks' secrets. Finally, run the script, etl.py, and review the results from the aggregation.
@@ -60,12 +60,18 @@ ORDER BY: The final output is sorted in ascending order based on the counts in t
 
 
 ## Example Script Result
-<img width="744" alt="image" src="https://github.com/user-attachments/assets/c5cdb2b8-6b14-4d46-8858-c8ccfe9eacec">
+<img width="846" alt="image" src="https://github.com/user-attachments/assets/6b84feef-75a3-49f4-a768-3b19f4abcfd1">
 
+### Complex Query Output
 Example interpretation of the row where ```rounded_driv_ct```=11.0:
 There are 5 states whose number of drivers involved in fatal collisions per billion miles is in the range [10.5, 11.5). On average, these states find approximately 3.97 bad drivers per billion who were also speeding during the collision.
 
 Using this information, one could compare the trend of fatal collisions and speeding rates. 
+
+### Interactive Query Output
+In the last part of the script, the user gets the opportunity to run their own SQL Query. To do so, the user needs to ensure to (1) respond "y" to the question, "Would you like to run your own query?". Responding with anything else will not generate a custom query. (2) The user must enter a valid query that would run in Databricks. An invalid query will result in no output.
+
+Given these criteria are met, the script will output the result from the valid query before exiting the script. In my example, I use a simple query that renders the desired results.
 
 
 
